@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <nav class="navbar mb-4 navbar-expand-lg bg-dark border-bottom border-body" data-bs-theme="dark">
+        <div class="container-md">
+            <a class="navbar-brand" href="#">Agenda</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <h2>Lista de tarefas</h2>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Titulo</th>
+                    <th scope="col">Craido em</th>
+                    <th scope="col">Data de Entrega</th>
+                    <th scope="col">Finalizar Tarefa</th>
+                    <th scope="col">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="todo : ${todos}">
+                    <th scope="row" th:text="${todo.id}">1</th>
+                    <td th:text="${todo.titulo}">Mark</td>
+                    <td th:text="${todo.criarAT}">Otto</td>
+                    <td th:text="${todo.dataFinal}">Otto</td>
+                    <td th:text="${todo.finalAt}">Otto</td>
+                    <td>
+                        <a href="">Concluir</a>
+                        <a href="">Editar</a>
+                        <a href="">Excluir</a>
+                    </td>
+                </tr>
+           
+            </tbody>
+        </table>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

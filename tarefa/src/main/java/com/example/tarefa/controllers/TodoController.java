@@ -8,22 +8,26 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.tarefa.repositories.TodoRepository;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @Controller
-public class HomeController {
+public class TodoController {
 
     private final TodoRepository todoRepository;
 
-    public  HomeController(TodoRepository todoRepository){
+    public  TodoController(TodoRepository todoRepository){
         this.todoRepository = todoRepository;
     }
 
-    @RequestMapping(path =  "/", method = RequestMethod.GET)
-    public ModelAndView home(){
-        var modelAndView = new ModelAndView("home");
-        modelAndView.addObject("nome", "Felipe e Maria");
-        var alunos = List.of("Felipe", "Maria Eduarda", "teste");
-        modelAndView.addObject("alunos", alunos);
+    @GetMapping("/")
+    public ModelAndView list() {
+        var modelAndView = new ModelAndView("todo/list");
+        modelAndView.addObject("todos", todoRepository.findAll());
         return modelAndView;
     }
+    
+   
+    
 }
